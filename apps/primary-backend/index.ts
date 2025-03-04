@@ -6,15 +6,22 @@ import authMiddleware from "./middleware.ts";
 
 
 const app = express();
-
-dotenv.config();
 app.use(express.json());
 app.use(cors());
+
+dotenv.config();
+
+
+
 
 
 app.post("/project",authMiddleware,async (req ,res ) => {
     const { prompt } = req.body;
+
     const userId = req.userId!;
+
+    console.log("userId ", userId);
+
     const name = prompt.split("\n")[0];
 
     const project = await prismaClient.project.create({
@@ -23,6 +30,8 @@ app.post("/project",authMiddleware,async (req ,res ) => {
             userId : userId,
         }
     })
+
+    console.log("project", project)
 
     if(!project){
          res.status(404).json({
@@ -54,6 +63,6 @@ app.get("/projects",authMiddleware,async (req,res)=>{
 })
 
 
-app.listen(3000,() =>{
-    console.log("Server started on port 3000");
+app.listen(8080,() =>{
+    console.log("Server started on port 8080");
 })
