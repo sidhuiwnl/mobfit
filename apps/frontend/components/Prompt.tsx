@@ -42,7 +42,7 @@ export function Prompt() {
                 <div className="w-96 h-64 fixed -bottom-30 -right-10 -z-50 bg-blue-700/50 blur-3xl animate-pulse duration-4000" />
 
                 <div className="relative mb-8">
-                    <div className="flex border border-primary/20 rounded-lg p-4 bg-background/50">
+                    <div className="flex border border-neutral-700 rounded-lg p-4 bg-background/50">
                         <Paperclip className="w-5 h-5 text-gray-500 mr-2 mt-2.5" />
 
                         <Textarea
